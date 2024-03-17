@@ -10,6 +10,8 @@ import rain from "../Asset/rain.png";
 import snow from "../Asset/snow.png";
 import wind from "../Asset/wind.png";
 
+import apiKey from "../../../apiKey/apiKey";
+
 const WeatherApp = () => {
   return (
     <div>
