@@ -14,6 +14,7 @@ import { apiKey } from "../../apiKey/apiKey.js";
 
 const WeatherApp = () => {
   const [icon, setIcon] = useState(cloud);
+  const [isActive, setIsActive] = useState(false);
 
   const searchCity = async () => {
     const element = document.getElementsByClassName("cityInput");
@@ -69,6 +70,24 @@ const WeatherApp = () => {
       setIcon(clear);
     }
   };
+
+  const changeMetric = () => {
+    var weatherTemp = document.querySelector(".weather-temp");
+    if (weatherTemp !== null) {
+      // Get the current temperature value
+      var currentTemperature = parseFloat(weatherTemp.textContent);
+
+      // Convert based on isActive state
+      var updatedTemperature = isActive // If isActive is true, convert to Fahrenheit
+        ? Math.round((currentTemperature - 32) * (5 / 9)) + "°c" // Fahrenheit
+        : Math.round((currentTemperature * 9) / 5 + 32) + "°f"; // Celsius
+
+      // Update the text content of the element with the new temperature value
+      weatherTemp.textContent = updatedTemperature;
+    }
+    setIsActive(!isActive); // Toggle isActive state
+  };
+
   return (
     <div>
       <div className="container">
@@ -82,11 +101,25 @@ const WeatherApp = () => {
           >
             <img src={search} alt="" />
           </div>
+          <div className="metrics">
+            <div
+              className={`change-metics ${isActive ? "active" : ""}`}
+              onClick={changeMetric}
+            >
+              °f
+            </div>
+            <div
+              className={`change-metics ${isActive ? "" : "active"}`}
+              onClick={changeMetric}
+            >
+              °c
+            </div>
+          </div>
         </div>
         <div className="weather-image">
           <img src={icon} alt="" />
         </div>
-        <div className="weather-temp">24</div>
+        <div className="weather-temp">24c</div>
         <div className="weather-location">London</div>
         <div className="data-container">
           <div className="element">

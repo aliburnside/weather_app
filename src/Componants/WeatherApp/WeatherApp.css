@@ -35,6 +35,27 @@
   border-radius: 40px;
   cursor: pointer;
 }
+.active {
+  pointer-events: none;
+  background: #dbecfc !important;
+  color: #5a5a5a !important;
+}
+
+.metrics {
+  display: flex;
+  flex-direction: column;
+  color: #757575;
+}
+.change-metics {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 78px;
+  height: 40px;
+  background: #ebfffc;
+  border-radius: 40px;
+  cursor: pointer;
+}
 
 .weather-image {
   margin-top: 29px;
