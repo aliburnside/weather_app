@@ -39,6 +39,7 @@
   pointer-events: none;
   background: #dbecfc !important;
   color: #5a5a5a !important;
+  font-weight: bold;
 }
 
 .metrics {
@@ -53,8 +54,12 @@
   width: 78px;
   height: 40px;
   background: #ebfffc;
-  border-radius: 40px;
+  border-radius: 40px 40px 0px 0px;
   cursor: pointer;
+}
+
+.bottom {
+  border-radius: 0px 0px 40px 40px !important;
 }
 
 .weather-image {

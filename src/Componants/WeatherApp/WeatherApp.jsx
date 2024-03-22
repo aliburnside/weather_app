@@ -33,6 +33,7 @@ const WeatherApp = () => {
     wind[0].innerHTML = Math.floor(data.wind.speed) + " km/h";
     temprature[0].innerHTML = Math.floor(data.main.temp) + "°c";
     location[0].innerHTML = data.name;
+    setIsActive(false);
 
     if (data.weather[0].icon === "01d" || data.weather[0].icon === "01n") {
       setIcon(clear);
@@ -88,6 +89,19 @@ const WeatherApp = () => {
     setIsActive(!isActive); // Toggle isActive state
   };
 
+  // const liveVideo = async () => {
+
+  //   const { initialize } = require('helios-web-sdk');
+
+  //   initialize({
+  //       apiToken: `${videoApiKey}`,
+  //       serviceName: <SERVICE_NAME>, // TODO: Insert service name.
+  //       enable: true,                // Defaults to false if omitted.
+  //       environment: <ENVIRONMENT>   // TODO: Insert environment name.
+  //   });
+
+  // };
+
   return (
     <div>
       <div className="container">
@@ -109,7 +123,7 @@ const WeatherApp = () => {
               °f
             </div>
             <div
-              className={`change-metics ${isActive ? "" : "active"}`}
+              className={`change-metics bottom ${isActive ? "" : "active"}`}
               onClick={changeMetric}
             >
               °c
@@ -119,7 +133,7 @@ const WeatherApp = () => {
         <div className="weather-image">
           <img src={icon} alt="" />
         </div>
-        <div className="weather-temp">24c</div>
+        <div className="weather-temp">24°c</div>
         <div className="weather-location">London</div>
         <div className="data-container">
           <div className="element">
